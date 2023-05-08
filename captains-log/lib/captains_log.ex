@@ -5,9 +5,7 @@ defmodule CaptainsLog do
 
   def random_ship_registry_number(), do: "NCC-#{Enum.random(Enum.to_list(1000..9999))}"
 
-  def random_stardate(), do: :rand.uniform() + Enum.random(Enum.to_list(41000..41999))
+  def random_stardate(), do: :rand.uniform() * 1000 + 41000
 
-  def format_stardate(stardate) do
-    # Please implement the format_stardate/1 function
-  end
+  def format_stardate(stardate), do: to_string(:io_lib.format("~.1f", [stardate]))
 end
